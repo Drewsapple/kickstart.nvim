@@ -616,7 +616,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        ts_ls = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -821,7 +821,16 @@ require('lazy').setup({
       }
     end,
   },
-
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    config = function()
+      require('copilot').setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
+    end,
+  },
   { -- AI Autocomplete
     'yetone/avante.nvim',
     event = 'VeryLazy',
